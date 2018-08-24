@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SensorPrediction</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="pose_standing">Standing</string>
+    <string name="pose_crouching">Crouching</string>
+    <string name="pose_prone">Prone</string>
+
+    <string name="begin_predictions">Begin Predicting</string>
+    <string name="end_predictions">Stop Predicting</string>
+</resources>
