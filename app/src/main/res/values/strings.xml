@@ -6,6 +6,11 @@
     <string name="pose_crouching">Crouching</string>
     <string name="pose_prone">Prone</string>
 
+    <string name="confidence">Confidence</string>
+    <string name="confidence_standing">Standing: </string>
+    <string name="confidence_crouching">Crouching: </string>
+    <string name="confidence_prone">Prone: </string>
+
     <string name="begin_predictions">Begin Predicting</string>
     <string name="end_predictions">Stop Predicting</string>
 </resources>
