@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements SensorCapturer.Se
     // Member variables
     private Timer PoseInferenceTimer;// Timer for appending new sensor data to logs
     private TensorFlowPoseClassifier poseClassifier;
-
+    private SensorCapturer sensorCapturer;
     TextView standConfidence;
     TextView crouchConfidence;
     TextView proneConfidence;
@@ -62,14 +62,25 @@ public class MainActivity extends AppCompatActivity implements SensorCapturer.Se
 
         poseClassifier = new TensorFlowPoseClassifier(getAssets(), MODEL_FILE, LABEL_FILE, INPUT_SIZE, INPUT_NAME, OUTPUT_NAME);
 
+        SensorCapturer sensorCapturer = new SensorCapturer(this, this);
         predictionButton.setOnClickListener(v -> {
             if(predicting == false){
-                //TODO Start recurring timer to snag sensor values
-                //TODO Start predicting
-                SensorCapturer sensorCapturer = new SensorCapturer(this, this);
+                // Start predicting
                 sensorCapturer.startCapture();
+                predicting = true;
+
+                // Set UI
+                predictionButton.setText(getResources().getString(R.string.end_predictions));
             } else {
-                //TODO Stop predicting
+                // Stop predicting
+                sensorCapturer.stopCapture();
+                predicting = false;
+
+                //clear UI
+                standConfidence.setText(null);
+                crouchConfidence.setText(null);
+                proneConfidence.setText(null);
+                predictionButton.setText(getResources().getString(R.string.begin_predictions));
             }
         });
     }
