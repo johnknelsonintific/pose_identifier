@@ -22,9 +22,7 @@ import java.util.Timer;
 public class MainActivity extends AppCompatActivity implements SensorCapturer.SensorCaptureListenerInterface {
 
     // Static tags
-//    private static final String MODEL_FILE = "file:///android_asset/frozen_pose_model24_08_2018.pb";
-//    private static final String MODEL_FILE = "file:///android_asset/pose_graph_def28_08-15_51_13.pb";
-    private static final String MODEL_FILE = "file:///android_asset/posegraph_def_trans.pb";
+    private static final String MODEL_FILE = "file:///android_asset/posegraph_def_trans_9_7-1.pb";
     private static final String LABEL_FILE = "file:///android_asset/pose_labels.txt";
     private static final int INPUT_SIZE = 12;
     private static final String INPUT_NAME = "dense_1_input";
@@ -109,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements SensorCapturer.Se
 
     @Override
     public void onSensorCapture(SensorLogEntry sensorLogEntry) {
-        //TODO Run inference
+        // Run inference
         float[] confidences = poseClassifier.predictPose(sensorLogEntry);
         showConfidence(confidences);
     }

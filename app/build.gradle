@@ -35,8 +35,9 @@ dependencies {
     // Dependency on external aars (sensorlogger)
     implementation fileTree(dir: 'libs', include: ['*.aar'])
 
-    // Aar dependency test
+    // Google play
     implementation 'com.google.android.gms:play-services-location:15.0.1'
+
     implementation 'commons-io:commons-io:2.6'
     implementation 'org.apache.commons:commons-csv:1.5'
 }
